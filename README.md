@@ -1,0 +1,1 @@
+Next: residue curves + UI embedding strategy
