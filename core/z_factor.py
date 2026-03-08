@@ -1,5 +1,14 @@
 from __future__ import annotations
-from numba import njit
+
+try:
+    from numba import njit
+except ModuleNotFoundError:
+    # Fallback: si no existe numba, decorador "no-op"
+    def njit(*args, **kwargs):
+        def wrapper(fn):
+            return fn
+        return wrapper
+
 
 @njit(cache=True, fastmath=True)
 def Z_PR_vapor(A: float, B: float, tol: float = 1e-10) -> float:
