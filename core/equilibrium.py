@@ -76,7 +76,7 @@ class VLESolver:
             Psat = self.psat_model(T)
             phi_sat = self.eos.phi_pure(Psat, T)
             phi_v = self.eos.phi_mix(y, P, T)
-            K = np.divide(y, x, out=np.ones_like(x), where=x > 0)
+            K = np.divide(y, x, out=np.full_like(x, np.nan), where=x > 0)
 
             return BubblePoint(
                 T=T, x=x, y=y, P=float(P),
