@@ -1,6 +1,5 @@
-def main():
-    print("Hello from distillation!")
-
+import flet as ft
+from ui.app import main as app_main
 
 if __name__ == "__main__":
-    main()
+    ft.run(main=app_main)
